@@ -31,4 +31,11 @@ describe("UsersApi", () => {
         const userInfo = await client.users.getUserInfo("jorvixsky");
         expect(userInfo).toBeDefined();
     });
+    it("Should be able to get user followers", async () => {
+        const client = new TwitterAPIIOClient({
+            apiKey: process.env.VITE_TWITTERAPI_IO_API_KEY!,
+        });
+        const userFollowers = await client.users.getUserFollowers("jorvixsky");
+        expect(userFollowers.followers.length).toBeGreaterThan(0);
+    });
 });

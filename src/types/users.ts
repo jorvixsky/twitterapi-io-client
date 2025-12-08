@@ -50,3 +50,7 @@ export interface UserInfoResponse {
         };
     };
 }
+
+export interface UserFollowersResponse {
+    followers: UserInfoResponse[];
+}
