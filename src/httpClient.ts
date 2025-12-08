@@ -16,8 +16,8 @@ export class HttpClient {
         const response = await fetch(`${this.baseUrl}${path}`, {
             ...init,
             headers: {
-                "X-API-Key": this.apiKey,
                 ...(init.headers ?? {}),
+                "X-API-Key": this.apiKey,
             },
         });
 
