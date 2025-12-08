@@ -4,8 +4,10 @@ import type { UserInfoResponse } from "../types/users";
 export class UsersApi {
   constructor(private http: HttpClient) {}
 
-  getUserInfo(userId: string): Promise<UserInfoResponse> {
-    return this.http.request<UserInfoResponse>(`/oapi/users/${userId}`);
+  async getUserInfo(userName: string): Promise<UserInfoResponse> {
+    const params = new URLSearchParams({ userName });
+    const response = await this.http.request<{ data: UserInfoResponse }>(`/twitter/user/info?${params.toString()}`);
+    console.log(response);
+    return response.data;
   }
-
 }

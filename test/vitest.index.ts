@@ -12,14 +12,23 @@ describe("Client", () => {
         const client = new TwitterAPIIOClient({
             apiKey: "invalid",
         });
-        await expect(client.getMyAccountInfo()).rejects.toThrow("Unauthorized");
+        await expect(client.myEndpoint.getMyAccountInfo()).rejects.toThrow("Unauthorized");
     });
     it("Should be able to get my account info", async () => {
         const client = new TwitterAPIIOClient({
             apiKey: process.env.VITE_TWITTERAPI_IO_API_KEY!,
         });
-        const myAccountInfo = await client.getMyAccountInfo();
-        console.log(myAccountInfo);
+        const myAccountInfo = await client.myEndpoint.getMyAccountInfo();
         expect(myAccountInfo).toBeDefined();
+    });
+});
+
+describe("UsersApi", () => {
+    it("Should be able to get user info", async () => {
+        const client = new TwitterAPIIOClient({
+            apiKey: process.env.VITE_TWITTERAPI_IO_API_KEY!,
+        });
+        const userInfo = await client.users.getUserInfo("jorvixsky");
+        expect(userInfo).toBeDefined();
     });
 });

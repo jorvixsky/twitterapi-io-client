@@ -1,31 +1,16 @@
-import { MyAccountInfoResponse } from "./types/myEndpoint";
+import { HttpClient, type HttpClientOptions } from "./httpClient";
+import { UsersApi } from "./resources/users";
+import { MyEndpointApi } from "./resources/myEndpoint";
 
-export interface TwitterAPIIOClientOptions {
-    apiKey: string;
-    baseUrl?: string;
-}
+export interface TwitterAPIIOClientOptions extends HttpClientOptions { }
 
 export class TwitterAPIIOClient {
-    protected apiKey: string;
-    protected baseUrl: string;
+    public readonly users: UsersApi;
+    public readonly myEndpoint: MyEndpointApi;
 
-    constructor({ apiKey, baseUrl = "https://api.twitterapi.io" }: TwitterAPIIOClientOptions) {
-        this.apiKey = apiKey;
-        this.baseUrl = baseUrl;
-    }
-
-    public async getMyAccountInfo(): Promise<MyAccountInfoResponse> {
-        const response = await fetch(`${this.baseUrl}/oapi/my/info`, {
-            headers: {
-                "X-API-Key": this.apiKey
-            }
-        });
-
-        if (!response.ok) {
-            throw new Error(`${response.statusText}`);
-        }
-
-        const json = await response.json();
-        return json as MyAccountInfoResponse;
+    constructor(options: TwitterAPIIOClientOptions) {
+        const http = new HttpClient(options);
+        this.users = new UsersApi(http);
+        this.myEndpoint = new MyEndpointApi(http);
     }
 }
