@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { TwitterAPIIOClient } from "../src/index";
+import { TwitterAPIIOClient } from "../src/client";
 
 describe("Environment", () => {
     it("Should have TWITTERAPI_IO_API_KEY", () => {
