@@ -53,4 +53,6 @@ export interface UserInfoResponse {
 
 export interface UserFollowersResponse {
     followers: UserInfoResponse[];
+    has_next_page: boolean;
+    next_cursor: string;
 }
