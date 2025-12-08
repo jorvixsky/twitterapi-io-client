@@ -1,4 +1,4 @@
-import { MyAccountInfoResponse } from "./responses";
+import { MyAccountInfoResponse } from "./types/myEndpoint";
 
 export interface TwitterAPIIOClientOptions {
     apiKey: string;
@@ -26,7 +26,6 @@ export class TwitterAPIIOClient {
         }
 
         const json = await response.json();
-        console.log(json);
         return json as MyAccountInfoResponse;
     }
 }
