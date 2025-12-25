@@ -58,6 +58,12 @@ const client = new TwitterAPIIOClient({
 | Get Community Tweets | `GET /twitter/community/tweets` | ✅ Supported | `client.communities.getCommunityTweets(communityId, cursor?)` |
 | Search Tweets From All Community | `GET /twitter/community/search` | ✅ Supported | `client.communities.searchCommunityTweets(query, queryType?, cursor?)` |
 
+### ✅ Trend Endpoint
+
+| Endpoint | Method | Status | Notes |
+|----------|--------|--------|-------|
+| Get Trends | `GET /twitter/trends` | ✅ Supported | `client.trends.getTrends(woeid)` |
+
 ## Not Supported Endpoints
 
 The following endpoint categories are **not yet implemented**:
@@ -71,10 +77,6 @@ The following endpoint categories are **not yet implemented**:
 - `GET /twitter/tweet/thread_context` - Get Tweet Thread Context
 - `GET /twitter/article` - Get Article
 - `GET /twitter/search` - Advanced Search
-
-### ❌ Trend Endpoint
-
-- `GET /twitter/trends` - Get Trends
 
 ### ❌ Spaces Endpoint
 
@@ -126,8 +128,8 @@ The following endpoints are marked as deprecated in the API documentation and ar
 
 ## Implementation Status Summary
 
-- **Fully Supported**: 17 endpoints (9 User endpoints + 2 List endpoints + 1 My endpoint + 5 Communities endpoints)
-- **Not Implemented**: ~25+ endpoints across multiple categories
+- **Fully Supported**: 18 endpoints (9 User endpoints + 2 List endpoints + 1 My endpoint + 5 Communities endpoints + 1 Trend endpoint)
+- **Not Implemented**: ~24+ endpoints across multiple categories
 
 ## Contributing
 
