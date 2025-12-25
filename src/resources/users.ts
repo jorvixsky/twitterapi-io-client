@@ -1,5 +1,5 @@
 import type { HttpClient } from "../httpClient";
-import type { FollowRelationshipResponse, UserFollowersResponse, UserFollowingsResponse, UserInfoResponse, UserLatestTweetsResponse, UserMentionsResponse, UserProfileAboutResponse } from "../types/users";
+import type { FollowRelationshipResponse, SearchUserByKeywordResponse, UserFollowersResponse, UserFollowingsResponse, UserInfoResponse, UserLatestTweetsResponse, UserMentionsResponse, UserProfileAboutResponse } from "../types/users";
 
 export class UsersApi {
   constructor(private http: HttpClient) {}
@@ -46,6 +46,12 @@ export class UsersApi {
   async checkFollowRelationship(sourceUserName: string, targetUserName: string): Promise<FollowRelationshipResponse> {
     const params = new URLSearchParams({ source_user_name: sourceUserName, target_user_name: targetUserName });
     const response = await this.http.request<FollowRelationshipResponse>(`/twitter/user/check_follow_relationship?${params.toString()}`);
+    return response;
+  }
+
+  async searchUserByKeyword(query: string, cursor?: string): Promise<SearchUserByKeywordResponse> {
+    const params = new URLSearchParams({ query, cursor: cursor ?? "" });
+    const response = await this.http.request<SearchUserByKeywordResponse>(`/twitter/user/search?${params.toString()}`);
     return response;
   }
 } 

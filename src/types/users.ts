@@ -169,3 +169,11 @@ export interface FollowRelationshipResponse {
     status: string;
     message?: string;
 }
+
+export interface SearchUserByKeywordResponse {
+    users: UserInfoResponse[];
+    has_next_page: boolean;
+    next_cursor: string;
+    status: string;
+    msg?: string;
+}
