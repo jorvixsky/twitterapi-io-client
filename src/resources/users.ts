@@ -20,9 +20,48 @@ export class UsersApi {
     if (!userId && !userName) {
       throw new Error("Either userId or userName is required");
     }
-    const params = new URLSearchParams({ userId: userId ?? "", userName: userName ?? "", cursor: cursor ?? "", pageSize: pageSize?.toString() ?? "200", includeReplies: includeReplies?.toString() ?? "false" });
-    const response = await this.http.request<UserLatestTweetsResponse>(`/twitter/user/latest_tweets?${params.toString()}`);
-    return response;
+    const params = new URLSearchParams();
+    if (userId) params.append("userId", userId);
+    if (userName) params.append("userName", userName);
+    if (cursor && cursor.trim() !== "") params.append("cursor", cursor);
+    params.append("pageSize", pageSize?.toString() ?? "200");
+    params.append("includeReplies", includeReplies?.toString() ?? "false");
+
+    const url = `/twitter/user/latest_tweets?${params.toString()}`;
+
+    const response = await this.http.request<{ status: string; msg?: string; data?: UserLatestTweetsResponse } | UserLatestTweetsResponse>(url);
+
+    // Check if tweets are at the top level (direct response)
+    if ('tweets' in response && Array.isArray(response.tweets)) {
+      return response as UserLatestTweetsResponse;
+    }
+
+    // Handle response wrapped in { status, msg, data }
+    if ('data' in response && response.data) {
+      const data = response.data;
+
+      // Check if data contains tweets array (expected structure per docs)
+      if ('tweets' in data && Array.isArray(data.tweets)) {
+        return {
+          tweets: data.tweets,
+          has_next_page: data.has_next_page ?? false,
+          next_cursor: data.next_cursor ?? "",
+          status: data.status || response.status || "success",
+          message: data.message || response.msg
+        };
+      }
+
+      // If data doesn't have tweets, return empty structure (API might be returning wrong data)
+      return {
+        tweets: [],
+        has_next_page: false,
+        next_cursor: "",
+        status: response.status || "success",
+        message: response.msg
+      };
+    }
+
+    return response as UserLatestTweetsResponse;
   }
 
   async getUserFollowers(userName: string, cursor?: string, pageSize?: number): Promise<UserFollowersResponse> {
@@ -37,10 +76,51 @@ export class UsersApi {
     return response;
   }
 
-  async getUserMentions(username: string, sinceTime: number, untilTime: number, cursor?: string): Promise<UserMentionsResponse> {
-    const params = new URLSearchParams({ username, sinceTime: sinceTime.toString(), untilTime: untilTime.toString(), cursor: cursor ?? "" });
-    const response = await this.http.request<UserMentionsResponse>(`/twitter/user/mentions?${params.toString()}`);
-    return response;
+  async getUserMentions(userName: string, sinceTime: number, untilTime: number, cursor?: string): Promise<UserMentionsResponse> {
+    const params = new URLSearchParams({
+      userName,
+      sinceTime: sinceTime.toString(),
+      untilTime: untilTime.toString()
+    });
+
+    if (cursor && cursor.trim() !== "") {
+      params.append("cursor", cursor);
+    }
+    const url = `/twitter/user/mentions?${params.toString()}`;
+
+    const response = await this.http.request<{ status: string; msg?: string; data?: UserMentionsResponse } | UserMentionsResponse>(url);
+
+    // Check if tweets are at the top level (direct response)
+    if ('tweets' in response && Array.isArray(response.tweets)) {
+      return response as UserMentionsResponse;
+    }
+
+    // Handle response wrapped in { status, msg, data }
+    if ('data' in response && response.data) {
+      const data = response.data;
+
+      // Check if data contains tweets array (expected structure per docs)
+      if ('tweets' in data && Array.isArray(data.tweets)) {
+        return {
+          tweets: data.tweets,
+          has_next_page: data.has_next_page ?? false,
+          next_cursor: data.next_cursor ?? "",
+          status: data.status || response.status || "success",
+          message: data.message || response.msg
+        };
+      }
+
+      // If data doesn't have tweets, return empty structure
+      return {
+        tweets: [],
+        has_next_page: false,
+        next_cursor: "",
+        status: response.status || "success",
+        message: response.msg
+      };
+    }
+
+    return response as UserMentionsResponse;
   }
 
   async checkFollowRelationship(sourceUserName: string, targetUserName: string): Promise<FollowRelationshipResponse> {
