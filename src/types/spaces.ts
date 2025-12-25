@@ -20,6 +20,6 @@ export interface SpaceDetailResponse {
     hosts?: UserInfoResponse[];
     speakers?: UserInfoResponse[];
     status: string;
-    message?: string;
+    msg: string;
 }
 

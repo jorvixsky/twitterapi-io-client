@@ -12,7 +12,7 @@ export interface CommunityInfoResponse {
     banner_image?: string;
     profile_image?: string;
     status: string;
-    message?: string;
+    msg: string;
 }
 
 export interface CommunityMembersResponse {
@@ -20,7 +20,7 @@ export interface CommunityMembersResponse {
     has_next_page: boolean;
     next_cursor: string;
     status: string;
-    msg?: string;
+    msg: string;
 }
 
 export interface CommunityModeratorsResponse {
@@ -28,7 +28,7 @@ export interface CommunityModeratorsResponse {
     has_next_page: boolean;
     next_cursor: string;
     status: string;
-    msg?: string;
+    msg: string;
 }
 
 export interface CommunityTweetsResponse {
@@ -36,7 +36,7 @@ export interface CommunityTweetsResponse {
     has_next_page: boolean;
     next_cursor: string;
     status: string;
-    message?: string;
+    msg: string;
 }
 
 export interface CommunitySearchResponse {
@@ -44,6 +44,6 @@ export interface CommunitySearchResponse {
     has_next_page: boolean;
     next_cursor: string;
     status: string;
-    message?: string;
+    msg: string;
 }
 

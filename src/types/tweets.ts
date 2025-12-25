@@ -34,7 +34,7 @@ export interface Tweet {
 export interface TweetsByIdsResponse {
     tweets: Tweet[];
     status: string;
-    message?: string;
+    msg: string;
 }
 
 export interface TweetRepliesResponse {
@@ -42,7 +42,7 @@ export interface TweetRepliesResponse {
     has_next_page: boolean;
     next_cursor: string;
     status: string;
-    message?: string;
+    msg: string;
 }
 
 export interface TweetQuotationsResponse {
@@ -50,7 +50,7 @@ export interface TweetQuotationsResponse {
     has_next_page: boolean;
     next_cursor: string;
     status: string;
-    message?: string;
+    msg: string;
 }
 
 export interface TweetRetweetersResponse {
@@ -58,13 +58,13 @@ export interface TweetRetweetersResponse {
     has_next_page: boolean;
     next_cursor: string;
     status: string;
-    message?: string;
+    msg: string;
 }
 
 export interface TweetThreadContextResponse {
     tweets: Tweet[];
     status: string;
-    message?: string;
+    msg: string;
 }
 
 export interface ArticleResponse {
@@ -78,7 +78,7 @@ export interface ArticleResponse {
         content?: string;
     };
     status: string;
-    message?: string;
+    msg: string;
 }
 
 export interface SearchTweetsResponse {
@@ -86,6 +86,6 @@ export interface SearchTweetsResponse {
     has_next_page: boolean;
     next_cursor: string;
     status: string;
-    message?: string;
+    msg: string;
 }
 
