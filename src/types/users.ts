@@ -177,3 +177,9 @@ export interface SearchUserByKeywordResponse {
     status: string;
     msg?: string;
 }
+
+export interface UserVerifiedFollowersResponse {
+    followers: UserInfoResponse[];
+    status: string;
+    message?: string;
+}

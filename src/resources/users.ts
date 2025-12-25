@@ -1,5 +1,5 @@
 import type { HttpClient } from "../httpClient";
-import type { FollowRelationshipResponse, SearchUserByKeywordResponse, UserFollowersResponse, UserFollowingsResponse, UserInfoResponse, UserLatestTweetsResponse, UserMentionsResponse, UserProfileAboutResponse } from "../types/users";
+import type { FollowRelationshipResponse, SearchUserByKeywordResponse, UserFollowersResponse, UserFollowingsResponse, UserInfoResponse, UserLatestTweetsResponse, UserMentionsResponse, UserProfileAboutResponse, UserVerifiedFollowersResponse } from "../types/users";
 
 export class UsersApi {
   constructor(private http: HttpClient) {}
@@ -52,6 +52,12 @@ export class UsersApi {
   async searchUserByKeyword(query: string, cursor?: string): Promise<SearchUserByKeywordResponse> {
     const params = new URLSearchParams({ query, cursor: cursor ?? "" });
     const response = await this.http.request<SearchUserByKeywordResponse>(`/twitter/user/search?${params.toString()}`);
+    return response;
+  }
+
+  async getUserVerifiedFollowers(userId: string, cursor?: string): Promise<UserVerifiedFollowersResponse> {
+    const params = new URLSearchParams({ user_id: userId, cursor: cursor ?? "" });
+    const response = await this.http.request<UserVerifiedFollowersResponse>(`/twitter/user/verifiedFollowers?${params.toString()}`);
     return response;
   }
 } 
