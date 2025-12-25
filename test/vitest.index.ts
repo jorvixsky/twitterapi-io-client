@@ -24,6 +24,14 @@ describe("Client", () => {
 });
 
 describe("UsersApi", () => {
+    it("Should be able to get user profile about", async () => {
+        const client = new TwitterAPIIOClient({
+            apiKey: process.env.VITE_TWITTERAPI_IO_API_KEY!,
+        });
+        const userProfileAbout = await client.users.getUserProfileAbout("jorvixsky");
+        console.log(userProfileAbout);
+        expect(userProfileAbout).toBeDefined();
+    });
     it("Should be able to get user info", async () => {
         const client = new TwitterAPIIOClient({
             apiKey: process.env.VITE_TWITTERAPI_IO_API_KEY!,

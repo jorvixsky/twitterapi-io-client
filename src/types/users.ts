@@ -56,3 +56,52 @@ export interface UserFollowersResponse {
     has_next_page: boolean;
     next_cursor: string;
 }
+
+export interface UserProfileAboutResponse {
+    data: {
+        id: string;
+        name: string;
+        userName: string;
+        createdAt: string;
+        isBlueVerified: boolean;
+        protected: boolean;
+        affiliates_highlighted_label?: {
+            label: {
+                badge?: {
+                    url: string;
+                };
+                description: string;
+                url?: {
+                    url: string;
+                    urlType: string;
+                };
+                userLabelDisplayType: string;
+                userLabelType: string;
+            };
+        };
+        about_profile?: {
+            account_based_in?: string;
+            location_accurate?: boolean;
+            learn_more_url?: string;
+            affiliate_username?: string;
+            source?: string;
+            username_changes?: {
+                count: string;
+            };
+        };
+        identity_profile_labels_highlighted_label?: {
+            label: {
+                description: string;
+                badge?: {
+                    url: string;
+                };
+                url?: {
+                    url: string;
+                    urlType: string;
+                };
+                userLabelDisplayType: string;
+                userLabelType: string;
+            };
+        };
+    };
+}

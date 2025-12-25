@@ -1,8 +1,14 @@
 import type { HttpClient } from "../httpClient";
-import type { UserFollowersResponse, UserInfoResponse } from "../types/users";
+import type { UserFollowersResponse, UserInfoResponse, UserProfileAboutResponse } from "../types/users";
 
 export class UsersApi {
   constructor(private http: HttpClient) {}
+
+  async getUserProfileAbout(userName: string): Promise<UserProfileAboutResponse> {
+    const params = new URLSearchParams({ userName });
+    const response = await this.http.request<UserProfileAboutResponse>(`/twitter/user_about?${params.toString()}`);
+    return response;
+  }
 
   async getUserInfo(userName: string): Promise<UserInfoResponse> {
     const params = new URLSearchParams({ userName });
