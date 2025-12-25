@@ -64,6 +64,12 @@ const client = new TwitterAPIIOClient({
 |----------|--------|--------|-------|
 | Get Trends | `GET /twitter/trends` | ✅ Supported | `client.trends.getTrends(woeid)` |
 
+### ✅ Spaces Endpoint
+
+| Endpoint | Method | Status | Notes |
+|----------|--------|--------|-------|
+| Get Space Detail | `GET /twitter/space/detail` | ✅ Supported | `client.spaces.getSpaceDetail(spaceId)` |
+
 ## Not Supported Endpoints
 
 The following endpoint categories are **not yet implemented**:
@@ -77,10 +83,6 @@ The following endpoint categories are **not yet implemented**:
 - `GET /twitter/tweet/thread_context` - Get Tweet Thread Context
 - `GET /twitter/article` - Get Article
 - `GET /twitter/search` - Advanced Search
-
-### ❌ Spaces Endpoint
-
-- `GET /twitter/space/detail` - Get Space Detail
 
 ### ❌ Post & Action Endpoint V2
 
@@ -128,8 +130,8 @@ The following endpoints are marked as deprecated in the API documentation and ar
 
 ## Implementation Status Summary
 
-- **Fully Supported**: 18 endpoints (9 User endpoints + 2 List endpoints + 1 My endpoint + 5 Communities endpoints + 1 Trend endpoint)
-- **Not Implemented**: ~24+ endpoints across multiple categories
+- **Fully Supported**: 19 endpoints (9 User endpoints + 2 List endpoints + 1 My endpoint + 5 Communities endpoints + 1 Trend endpoint + 1 Spaces endpoint)
+- **Not Implemented**: ~23+ endpoints across multiple categories
 
 ## Contributing
 
