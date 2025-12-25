@@ -1,5 +1,5 @@
 import type { HttpClient } from "../httpClient";
-import type { UserFollowersResponse, UserInfoResponse, UserProfileAboutResponse } from "../types/users";
+import type { UserFollowersResponse, UserInfoResponse, UserLatestTweetsResponse, UserProfileAboutResponse } from "../types/users";
 
 export class UsersApi {
   constructor(private http: HttpClient) {}
@@ -14,6 +14,15 @@ export class UsersApi {
     const params = new URLSearchParams({ userName });
     const response = await this.http.request<{ data: UserInfoResponse }>(`/twitter/user/info?${params.toString()}`);
     return response.data;
+  }
+
+  async getUserLatestTweets(userId?: string, userName?: string, cursor?: string, pageSize?: number, includeReplies?: boolean): Promise<UserLatestTweetsResponse> {
+    if (!userId && !userName) {
+      throw new Error("Either userId or userName is required");
+    }
+    const params = new URLSearchParams({ userId: userId ?? "", userName: userName ?? "", cursor: cursor ?? "", pageSize: pageSize?.toString() ?? "200", includeReplies: includeReplies?.toString() ?? "false" });
+    const response = await this.http.request<UserLatestTweetsResponse>(`/twitter/user/latest_tweets?${params.toString()}`);
+    return response;
   }
 
   async getUserFollowers(userName: string, cursor?: string, pageSize?: number): Promise<UserFollowersResponse> {

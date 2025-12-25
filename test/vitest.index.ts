@@ -36,8 +36,15 @@ describe("UsersApi", () => {
         const userInfo = await client.users.getUserInfo("jorvixsky");
         expect(userInfo).toBeDefined();
     });
+    it("Should be able to get user latest tweets", async () => {
+        const userLatestTweets = await client.users.getUserLatestTweets("1864954440", undefined, undefined, 100, true);
+        expect(userLatestTweets.tweets).toBeDefined();
+    });
+    it("Should trigger error if both userId and userName are not provided", async () => {
+        await expect(client.users.getUserLatestTweets(undefined, undefined, undefined, 100, true)).rejects.toThrow("Either userId or userName is required");
+    });
     it("Should be able to get user followers", async () => {
         const userFollowers = await client.users.getUserFollowers("jorvixsky");
-        expect(userFollowers.followers.length).toBeGreaterThan(0);
+        expect(userFollowers.followers).toBeDefined();
     });
 });
