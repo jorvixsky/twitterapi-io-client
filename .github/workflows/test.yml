@@ -24,3 +24,5 @@ jobs:
 
       - name: Run tests
         run: npm test
+        env:
+          VITE_TWITTERAPI_IO_API_KEY: ${{ secrets.VITE_TWITTERAPI_IO_API_KEY }}
