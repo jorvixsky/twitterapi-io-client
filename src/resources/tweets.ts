@@ -42,8 +42,8 @@ export class TweetsApi {
         return response;
     }
 
-    async getArticle(articleUrl: string): Promise<ArticleResponse> {
-        const params = new URLSearchParams({ url: articleUrl });
+    async getArticle(articleId: string): Promise<ArticleResponse> {
+        const params = new URLSearchParams({ article_id: articleId });
         const response = await this.http.request<ArticleResponse>(`/twitter/article?${params.toString()}`);
         return response;
     }

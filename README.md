@@ -79,7 +79,7 @@ const client = new TwitterAPIIOClient({
 | Get Tweet Quotations | `GET /twitter/tweet/quotations` | ✅ Supported | `client.tweets.getTweetQuotations(tweetId, cursor?)` |
 | Get Tweet Retweeters | `GET /twitter/tweet/retweeters` | ✅ Supported | `client.tweets.getTweetRetweeters(tweetId, cursor?)` |
 | Get Tweet Thread Context | `GET /twitter/tweet/thread_context` | ✅ Supported | `client.tweets.getTweetThreadContext(tweetId)` |
-| Get Article | `GET /twitter/article` | ✅ Supported | `client.tweets.getArticle(articleUrl)` |
+| Get Article | `GET /twitter/article` | ✅ Supported | `client.tweets.getArticle(articleId)` |
 | Advanced Search | `GET /twitter/search` | ✅ Supported | `client.tweets.searchTweets(query, queryType?, cursor?)` |
 
 ## Not Supported Endpoints
