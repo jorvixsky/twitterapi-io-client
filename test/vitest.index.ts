@@ -32,6 +32,7 @@ let client: TwitterAPIIOClient = new TwitterAPIIOClient({
 const SAMPLE_USERNAME = "VitalikButerin";
 const SAMPLE_TARGET_USERNAME = "ethereum";
 const SAMPLE_USER_ID = "295218901";
+const SAMPLE_USER_ID_2 = "2312333412";
 const SAMPLE_LIST_ID = "952969346518720512";
 const SAMPLE_COMMUNITY_ID = "1472105760389668865";
 const SAMPLE_SPACE_ID = "1gqGvyLYggnKB";
@@ -50,6 +51,16 @@ describe("UsersApi", () => {
             expect(userProfileAbout.data).toBeDefined();
             expect(userProfileAbout.data.id).toBeDefined();
             expect(userProfileAbout.data.userName).toBeDefined();
+        });
+    });
+
+    describe("batchGetUserInfoByUserIds", () => {
+        it("Should be able to get batch user info by user IDs", async () => {
+            const batchUserInfo = await client.users.batchGetUserInfoByUserIds([SAMPLE_USER_ID, SAMPLE_USER_ID_2]);
+            expect(batchUserInfo).toBeDefined();
+            expect(batchUserInfo.users).toBeDefined();
+            expect(Array.isArray(batchUserInfo.users)).toBe(true);
+            expect(batchUserInfo.status).toBeDefined();
         });
     });
 
