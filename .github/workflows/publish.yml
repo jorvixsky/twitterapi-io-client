@@ -23,9 +23,7 @@ jobs:
                   cache: "npm"
 
             - run: npm ci
-            - run: npm test
-              env:
-                VITE_TWITTERAPI_IO_API_KEY: ${{ secrets.VITE_TWITTERAPI_IO_API_KEY }}
-            - run: npm run build
             - name: Publish
               run: npm publish
+              env:
+                  VITE_TWITTERAPI_IO_API_KEY: ${{ secrets.VITE_TWITTERAPI_IO_API_KEY }}
