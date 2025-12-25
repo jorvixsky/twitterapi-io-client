@@ -160,3 +160,12 @@ export interface UserMentionsResponse {
     status: string;
     message?: string;
 }
+
+export interface FollowRelationshipResponse {
+    data: {
+        following: boolean;
+        followed_by: boolean;
+    };
+    status: string;
+    message?: string;
+}
