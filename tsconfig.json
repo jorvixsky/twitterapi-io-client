@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
     "target": "ES2024",
-    "module": "ESNext",
-    "declaration": true,
+    "module": "CommonJS",
+    "rootDir": "src",
     "outDir": "dist",
-    "moduleResolution": "Node",
+    "declaration": true,
+    "strict": true,
     "esModuleInterop": true,
-    "strict": true
+    "skipLibCheck": true
   },
   "include": ["src"]
 }

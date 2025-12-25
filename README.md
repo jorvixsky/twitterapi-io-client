@@ -5,13 +5,13 @@ A TypeScript client library for the [TwitterAPI.io](https://docs.twitterapi.io) 
 ## Installation
 
 ```bash
-npm install twitterapi-io
+npm install twitterapi-io-client
 ```
 
 ## Usage
 
 ```typescript
-import { TwitterAPIIOClient } from 'twitterapi-io';
+import { TwitterAPIIOClient } from 'twitterapi-io-client';
 
 const client = new TwitterAPIIOClient({
   apiKey: 'your-api-key'
