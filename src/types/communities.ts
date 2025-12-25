@@ -1,4 +1,5 @@
-import type { UserInfoResponse, Tweet } from "./users";
+import type { UserInfoResponse } from "./users";
+import type { Tweet } from "./tweets";
 
 export interface CommunityInfoResponse {
     id: string;
