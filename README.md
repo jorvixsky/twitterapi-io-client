@@ -70,19 +70,21 @@ const client = new TwitterAPIIOClient({
 |----------|--------|--------|-------|
 | Get Space Detail | `GET /twitter/space/detail` | ✅ Supported | `client.spaces.getSpaceDetail(spaceId)` |
 
+### ✅ Tweet Endpoint
+
+| Endpoint | Method | Status | Notes |
+|----------|--------|--------|-------|
+| Get Tweets by IDs | `GET /twitter/tweet/by_ids` | ✅ Supported | `client.tweets.getTweetsByIds(tweetIds)` |
+| Get Tweet Replies | `GET /twitter/tweet/replies` | ✅ Supported | `client.tweets.getTweetReplies(tweetId, cursor?)` |
+| Get Tweet Quotations | `GET /twitter/tweet/quotations` | ✅ Supported | `client.tweets.getTweetQuotations(tweetId, cursor?)` |
+| Get Tweet Retweeters | `GET /twitter/tweet/retweeters` | ✅ Supported | `client.tweets.getTweetRetweeters(tweetId, cursor?)` |
+| Get Tweet Thread Context | `GET /twitter/tweet/thread_context` | ✅ Supported | `client.tweets.getTweetThreadContext(tweetId)` |
+| Get Article | `GET /twitter/article` | ✅ Supported | `client.tweets.getArticle(articleUrl)` |
+| Advanced Search | `GET /twitter/search` | ✅ Supported | `client.tweets.searchTweets(query, queryType?, cursor?)` |
+
 ## Not Supported Endpoints
 
 The following endpoint categories are **not yet implemented**:
-
-### ❌ Tweet Endpoint
-
-- `GET /twitter/tweet/by_ids` - Get Tweets by IDs
-- `GET /twitter/tweet/replies` - Get Tweet Replies
-- `GET /twitter/tweet/quotations` - Get Tweet Quotations
-- `GET /twitter/tweet/retweeters` - Get Tweet Retweeters
-- `GET /twitter/tweet/thread_context` - Get Tweet Thread Context
-- `GET /twitter/article` - Get Article
-- `GET /twitter/search` - Advanced Search
 
 ### ❌ Post & Action Endpoint V2
 
@@ -130,8 +132,8 @@ The following endpoints are marked as deprecated in the API documentation and ar
 
 ## Implementation Status Summary
 
-- **Fully Supported**: 19 endpoints (9 User endpoints + 2 List endpoints + 1 My endpoint + 5 Communities endpoints + 1 Trend endpoint + 1 Spaces endpoint)
-- **Not Implemented**: ~23+ endpoints across multiple categories
+- **Fully Supported**: 26 endpoints (9 User endpoints + 2 List endpoints + 1 My endpoint + 5 Communities endpoints + 1 Trend endpoint + 1 Spaces endpoint + 7 Tweet endpoints)
+- **Not Implemented**: ~16+ endpoints across multiple categories
 
 ## Contributing
 

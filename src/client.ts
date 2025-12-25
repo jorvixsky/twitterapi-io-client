@@ -5,6 +5,7 @@ import { ListApi } from "./resources/list";
 import { CommunitiesApi } from "./resources/communities";
 import { TrendsApi } from "./resources/trends";
 import { SpacesApi } from "./resources/spaces";
+import { TweetsApi } from "./resources/tweets";
 
 export interface TwitterAPIIOClientOptions extends HttpClientOptions { }
 
@@ -15,6 +16,7 @@ export class TwitterAPIIOClient {
     public readonly communities: CommunitiesApi;
     public readonly trends: TrendsApi;
     public readonly spaces: SpacesApi;
+    public readonly tweets: TweetsApi;
 
     constructor(options: TwitterAPIIOClientOptions) {
         const http = new HttpClient(options);
@@ -24,5 +26,6 @@ export class TwitterAPIIOClient {
         this.communities = new CommunitiesApi(http);
         this.trends = new TrendsApi(http);
         this.spaces = new SpacesApi(http);
+        this.tweets = new TweetsApi(http);
     }
 }

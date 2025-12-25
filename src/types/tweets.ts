@@ -31,3 +31,61 @@ export interface Tweet {
     isLimitedReply?: boolean;
 }
 
+export interface TweetsByIdsResponse {
+    tweets: Tweet[];
+    status: string;
+    message?: string;
+}
+
+export interface TweetRepliesResponse {
+    tweets: Tweet[];
+    has_next_page: boolean;
+    next_cursor: string;
+    status: string;
+    message?: string;
+}
+
+export interface TweetQuotationsResponse {
+    tweets: Tweet[];
+    has_next_page: boolean;
+    next_cursor: string;
+    status: string;
+    message?: string;
+}
+
+export interface TweetRetweetersResponse {
+    retweeters: UserInfoResponse[];
+    has_next_page: boolean;
+    next_cursor: string;
+    status: string;
+    message?: string;
+}
+
+export interface TweetThreadContextResponse {
+    tweets: Tweet[];
+    status: string;
+    message?: string;
+}
+
+export interface ArticleResponse {
+    article: {
+        id: string;
+        title: string;
+        description?: string;
+        url: string;
+        author?: UserInfoResponse;
+        published_at?: string;
+        content?: string;
+    };
+    status: string;
+    message?: string;
+}
+
+export interface SearchTweetsResponse {
+    tweets: Tweet[];
+    has_next_page: boolean;
+    next_cursor: string;
+    status: string;
+    message?: string;
+}
+
