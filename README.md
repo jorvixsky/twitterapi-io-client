@@ -25,6 +25,7 @@ const client = new TwitterAPIIOClient({
 | Endpoint | Method | Status | Notes |
 |----------|--------|--------|-------|
 | Get User Profile About | `GET /twitter/user_about` | ✅ Supported | `client.users.getUserProfileAbout(userName)` |
+| Batch Get User Info By UserIds | `GET /twitter/user/batch_info_by_ids` | ✅ Supported | `client.users.batchGetUserInfoByUserIds(userIds)` |
 | Get User Info | `GET /twitter/user/info` | ✅ Supported | `client.users.getUserInfo(userName)` |
 | Get User Last Tweets | `GET /twitter/user/latest_tweets` | ✅ Supported | `client.users.getUserLatestTweets(userId?, userName?, cursor?, pageSize?, includeReplies?)` |
 | Get User Followers | `GET /twitter/user/followers` | ✅ Supported | `client.users.getUserFollowers(userName, cursor?, pageSize?)` |
@@ -33,7 +34,6 @@ const client = new TwitterAPIIOClient({
 | Check Follow Relationship | `GET /twitter/user/check_follow_relationship` | ✅ Supported | `client.users.checkFollowRelationship(sourceUserName, targetUserName)` |
 | Search user by keyword | `GET /twitter/user/search` | ✅ Supported | `client.users.searchUserByKeyword(query, cursor?)` |
 | Get User Verified Followers | `GET /twitter/user/verifiedFollowers` | ✅ Supported | `client.users.getUserVerifiedFollowers(userId, cursor?)` |
-| Batch Get User Info By UserIds | `GET /twitter/user/batch` | ❌ Not Supported | - |
 
 ### ✅ List Endpoint
 
@@ -132,7 +132,7 @@ The following endpoints are marked as deprecated in the API documentation and ar
 
 ## Implementation Status Summary
 
-- **Fully Supported**: 26 endpoints (9 User endpoints + 2 List endpoints + 1 My endpoint + 5 Communities endpoints + 1 Trend endpoint + 1 Spaces endpoint + 7 Tweet endpoints)
+- **Fully Supported**: 27 endpoints (10 User endpoints + 2 List endpoints + 1 My endpoint + 5 Communities endpoints + 1 Trend endpoint + 1 Spaces endpoint + 7 Tweet endpoints)
 - **Not Implemented**: ~16+ endpoints across multiple categories
 
 ## Contributing
