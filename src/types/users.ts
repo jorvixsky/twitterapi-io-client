@@ -156,3 +156,8 @@ export interface UserVerifiedFollowersResponse {
     status: string;
     message?: string;
 }
+export interface BatchUserInfoByUserIdsResponse {
+    users: UserInfoResponse[];
+    status: string;
+    msg: string;
+}

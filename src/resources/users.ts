@@ -1,5 +1,5 @@
 import type { HttpClient } from "../httpClient";
-import type { FollowRelationshipResponse, SearchUserByKeywordResponse, UserFollowersResponse, UserFollowingsResponse, UserInfoResponse, UserLatestTweetsResponse, UserMentionsResponse, UserProfileAboutResponse, UserVerifiedFollowersResponse } from "../types/users";
+import type { BatchUserInfoByUserIdsResponse, FollowRelationshipResponse, SearchUserByKeywordResponse, UserFollowersResponse, UserFollowingsResponse, UserInfoResponse, UserLatestTweetsResponse, UserMentionsResponse, UserProfileAboutResponse, UserVerifiedFollowersResponse } from "../types/users";
 
 export class UsersApi {
   constructor(private http: HttpClient) {}
@@ -7,6 +7,12 @@ export class UsersApi {
   async getUserProfileAbout(userName: string): Promise<UserProfileAboutResponse> {
     const params = new URLSearchParams({ userName });
     const response = await this.http.request<UserProfileAboutResponse>(`/twitter/user_about?${params.toString()}`);
+    return response;
+  }
+
+  async batchGetUserInfoByUserIds(userIds: string[]): Promise<BatchUserInfoByUserIdsResponse> {
+    const params = new URLSearchParams({ userIds: userIds.join(",") });
+    const response = await this.http.request<BatchUserInfoByUserIdsResponse>(`/twitter/user/batch_info_by_ids?${params.toString()}`);
     return response;
   }
 
