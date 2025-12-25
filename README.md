@@ -48,6 +48,16 @@ const client = new TwitterAPIIOClient({
 |----------|--------|--------|-------|
 | Get My Account Info | `GET /oapi/my/info` | ✅ Supported | `client.myEndpoint.getMyAccountInfo()` |
 
+### ✅ Communities Endpoint
+
+| Endpoint | Method | Status | Notes |
+|----------|--------|--------|-------|
+| Get Community Info By Id | `GET /twitter/community/info` | ✅ Supported | `client.communities.getCommunityInfo(communityId)` |
+| Get Community Members | `GET /twitter/community/members` | ✅ Supported | `client.communities.getCommunityMembers(communityId, cursor?)` |
+| Get Community Moderators | `GET /twitter/community/moderators` | ✅ Supported | `client.communities.getCommunityModerators(communityId, cursor?)` |
+| Get Community Tweets | `GET /twitter/community/tweets` | ✅ Supported | `client.communities.getCommunityTweets(communityId, cursor?)` |
+| Search Tweets From All Community | `GET /twitter/community/search` | ✅ Supported | `client.communities.searchCommunityTweets(query, queryType?, cursor?)` |
+
 ## Not Supported Endpoints
 
 The following endpoint categories are **not yet implemented**:
@@ -61,14 +71,6 @@ The following endpoint categories are **not yet implemented**:
 - `GET /twitter/tweet/thread_context` - Get Tweet Thread Context
 - `GET /twitter/article` - Get Article
 - `GET /twitter/search` - Advanced Search
-
-### ❌ Communities Endpoint
-
-- `GET /twitter/community/info` - Get Community Info By Id
-- `GET /twitter/community/members` - Get Community Members
-- `GET /twitter/community/moderators` - Get Community Moderators
-- `GET /twitter/community/tweets` - Get Community Tweets
-- `GET /twitter/community/search` - Search Tweets From All Community
 
 ### ❌ Trend Endpoint
 
@@ -124,8 +126,8 @@ The following endpoints are marked as deprecated in the API documentation and ar
 
 ## Implementation Status Summary
 
-- **Fully Supported**: 12 endpoints (9 User endpoints + 2 List endpoints + 1 My endpoint)
-- **Not Implemented**: ~30+ endpoints across multiple categories
+- **Fully Supported**: 17 endpoints (9 User endpoints + 2 List endpoints + 1 My endpoint + 5 Communities endpoints)
+- **Not Implemented**: ~25+ endpoints across multiple categories
 
 ## Contributing
 
