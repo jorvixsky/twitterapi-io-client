@@ -57,6 +57,14 @@ export interface UserFollowersResponse {
     next_cursor: string;
 }
 
+export interface UserFollowingsResponse {
+    followings: UserInfoResponse[];
+    has_next_page: boolean;
+    next_cursor: string;
+    status: string;
+    message?: string;
+}
+
 export interface UserProfileAboutResponse {
     data: {
         id: string;

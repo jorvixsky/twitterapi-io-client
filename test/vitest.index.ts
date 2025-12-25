@@ -47,4 +47,8 @@ describe("UsersApi", () => {
         const userFollowers = await client.users.getUserFollowers("jorvixsky");
         expect(userFollowers.followers).toBeDefined();
     });
+    it("Should be able to get user followings", async () => {
+        const userFollowings = await client.users.getUserFollowings("jorvixsky");
+        expect(userFollowings.followings).toBeDefined();
+    });
 });
