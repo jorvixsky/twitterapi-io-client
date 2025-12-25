@@ -152,3 +152,11 @@ export interface UserLatestTweetsResponse {
     status: string;
     message?: string;
 }
+
+export interface UserMentionsResponse {
+    tweets: Tweet[];
+    has_next_page: boolean;
+    next_cursor: string;
+    status: string;
+    message?: string;
+}
