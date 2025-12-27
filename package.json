@@ -1,6 +1,6 @@
 {
   "name": "twitterapi-io-client",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A TypeScript client library for the TwitterAPI.io API",
   "author": "jorvixsky",
   "license": "MIT",
@@ -37,6 +37,6 @@
     "vitest": "4.0.15"
   },
   "repository": {
-    "url": "https://github.com/jorvixsky/twitterapi-io-client"
+    "url": "git+https://github.com/jorvixsky/twitterapi-io-client.git"
   }
 }
