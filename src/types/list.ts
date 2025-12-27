@@ -5,7 +5,7 @@ export interface ListFollowersResponse {
     has_next_page: boolean;
     next_cursor: string;
     status: string;
-    msg?: string;
+    msg: string;
 }
 
 export interface ListMembersResponse {
@@ -13,6 +13,6 @@ export interface ListMembersResponse {
     has_next_page: boolean;
     next_cursor: string;
     status: string;
-    msg?: string;
+    msg: string;
 }
 

@@ -10,12 +10,16 @@ npm install twitterapi-io-client
 
 ## Usage
 
+### Setup
+
 ```typescript
 import { TwitterAPIIOClient } from 'twitterapi-io-client';
 
 const client = new TwitterAPIIOClient({
   apiKey: 'your-api-key'
 });
+
+const accountInfo = await client.getUserProfileAbout("jorvixsky")
 ```
 
 ## Supported Endpoints

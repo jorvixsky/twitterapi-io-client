@@ -22,7 +22,14 @@
     "build": "tsc -p tsconfig.json",
     "prepublishOnly": "npm run build && npm test",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "test:environment": "vitest run test/environment.test.ts",
+    "test:users": "vitest run test/users.test.ts",
+    "test:list": "vitest run test/list.test.ts",
+    "test:communities": "vitest run test/communities.test.ts",
+    "test:trends": "vitest run test/trends.test.ts",
+    "test:spaces": "vitest run test/spaces.test.ts",
+    "test:tweets": "vitest run test/tweets.test.ts"
   },
   "devDependencies": {
     "@types/node": "24.10.0",

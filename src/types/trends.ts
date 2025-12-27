@@ -17,6 +17,6 @@ export interface TrendsResponse {
     created_at: string;
     locations: TrendLocation[];
     status: string;
-    message?: string;
+    msg: string;
 }
 

@@ -35,7 +35,7 @@ export class UsersApi {
 
     const url = `/twitter/user/latest_tweets?${params.toString()}`;
 
-    const response = await this.http.request<{ status: string; msg?: string; data?: UserLatestTweetsResponse } | UserLatestTweetsResponse>(url);
+    const response = await this.http.request<{ status: string; msg: string; data?: UserLatestTweetsResponse } | UserLatestTweetsResponse>(url);
 
     // Check if tweets are at the top level (direct response)
     if ('tweets' in response && Array.isArray(response.tweets)) {
@@ -53,7 +53,7 @@ export class UsersApi {
           has_next_page: data.has_next_page ?? false,
           next_cursor: data.next_cursor ?? "",
           status: data.status || response.status || "success",
-          message: data.message || response.msg
+          msg: data.msg || response.msg
         };
       }
 
@@ -63,7 +63,7 @@ export class UsersApi {
         has_next_page: false,
         next_cursor: "",
         status: response.status || "success",
-        message: response.msg
+        msg: response.msg
       };
     }
 
@@ -94,7 +94,7 @@ export class UsersApi {
     }
     const url = `/twitter/user/mentions?${params.toString()}`;
 
-    const response = await this.http.request<{ status: string; msg?: string; data?: UserMentionsResponse } | UserMentionsResponse>(url);
+    const response = await this.http.request<{ status: string; msg: string; data?: UserMentionsResponse } | UserMentionsResponse>(url);
 
     // Check if tweets are at the top level (direct response)
     if ('tweets' in response && Array.isArray(response.tweets)) {
@@ -112,7 +112,7 @@ export class UsersApi {
           has_next_page: data.has_next_page ?? false,
           next_cursor: data.next_cursor ?? "",
           status: data.status || response.status || "success",
-          message: data.message || response.msg
+          msg: data.msg || response.msg
         };
       }
 
@@ -122,7 +122,7 @@ export class UsersApi {
         has_next_page: false,
         next_cursor: "",
         status: response.status || "success",
-        message: response.msg
+        msg: response.msg
       };
     }
 

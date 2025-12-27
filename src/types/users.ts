@@ -28,7 +28,7 @@ export interface UserInfoResponse {
     isAutomated: boolean;
     automatedBy: string;
     unavailable?: boolean;
-    message?: string;
+    msg: string;
     unavailableReason?: string;
     profile_bio: {
         description: string;
@@ -58,7 +58,7 @@ export interface UserFollowersResponse {
     has_next_page: boolean;
     next_cursor: string;
     status: string;
-    message?: string;
+    msg: string;
 }
 
 export interface UserFollowingsResponse {
@@ -66,7 +66,7 @@ export interface UserFollowingsResponse {
     has_next_page: boolean;
     next_cursor: string;
     status: string;
-    message?: string;
+    msg: string;
 }
 
 export interface UserProfileAboutResponse {
@@ -123,7 +123,7 @@ export interface UserLatestTweetsResponse {
     has_next_page: boolean;
     next_cursor: string;
     status: string;
-    message?: string;
+    msg: string;
 }
 
 export interface UserMentionsResponse {
@@ -131,7 +131,7 @@ export interface UserMentionsResponse {
     has_next_page: boolean;
     next_cursor: string;
     status: string;
-    message?: string;
+    msg: string;
 }
 
 export interface FollowRelationshipResponse {
@@ -140,7 +140,7 @@ export interface FollowRelationshipResponse {
         followed_by: boolean;
     };
     status: string;
-    message?: string;
+    msg: string;
 }
 
 export interface SearchUserByKeywordResponse {
@@ -148,13 +148,13 @@ export interface SearchUserByKeywordResponse {
     has_next_page: boolean;
     next_cursor: string;
     status: string;
-    msg?: string;
+    msg: string;
 }
 
 export interface UserVerifiedFollowersResponse {
     followers: UserInfoResponse[];
     status: string;
-    message?: string;
+    msg: string;
 }
 export interface BatchUserInfoByUserIdsResponse {
     users: UserInfoResponse[];
