@@ -29,7 +29,8 @@
     "test:communities": "vitest run test/communities.test.ts",
     "test:trends": "vitest run test/trends.test.ts",
     "test:spaces": "vitest run test/spaces.test.ts",
-    "test:tweets": "vitest run test/tweets.test.ts"
+    "test:tweets": "vitest run test/tweets.test.ts",
+    "test:stream": "vitest run test/stream.test.ts"
   },
   "devDependencies": {
     "@types/node": "24.10.0",
