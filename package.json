@@ -1,7 +1,17 @@
 {
   "name": "twitterapi-io-client",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A TypeScript client library for the TwitterAPI.io API",
+  "keywords": [
+    "twitterapi-io",
+    "twitterapi",
+    "twitter",
+    "api",
+    "client",
+    "typescript",
+    "x",
+    "analytics"
+  ],
   "author": "jorvixsky",
   "license": "MIT",
   "type": "commonjs",
