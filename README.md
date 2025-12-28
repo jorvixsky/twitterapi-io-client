@@ -149,3 +149,6 @@ Contributions are welcome! If you'd like to add support for additional endpoints
 
 For detailed API documentation, visit: [https://docs.twitterapi.io](https://docs.twitterapi.io)
 
+## Support the project
+
+If you need to create your twitterapi-io account and you want to support this client to help me mantain it and make your implementation easier for you, you can do so by using this [affiliate link](https://twitterapi.io/?ref=jordi666). 
