@@ -86,6 +86,13 @@ const accountInfo = await client.getUserProfileAbout("jorvixsky")
 | Get Article | `GET /twitter/article` | ✅ Supported | `client.tweets.getArticle(articleId)` |
 | Advanced Search | `GET /twitter/search` | ✅ Supported | `client.tweets.searchTweets(query, queryType?, cursor?)` |
 
+### ✅ Stream Endpoint
+
+| Endpoint | Method | Status | Notes |
+|----------|--------|--------|-------|
+| Add User to Monitor | `POST /oapi/x_user_stream/add_user_to_monitor_tweet` | ✅ Supported | `client.stream.addUserToMonitor(xUserName)` |
+| Remove User from Monitor | `POST /oapi/x_user_stream/remove_user_from_monitor_tweet` | ✅ Supported | `client.stream.removeUserFromMonitor(xUserName)` |
+
 ## Not Supported Endpoints
 
 The following endpoint categories are **not yet implemented**:
@@ -115,11 +122,6 @@ The following endpoint categories are **not yet implemented**:
 - `POST /oapi/webhook/filter/update` - Update Webhook/Websocket Tweet Filter Rule
 - `DELETE /oapi/webhook/filter/delete` - Delete Webhook/Websocket Tweet Filter Rule
 
-### ❌ Stream Endpoint
-
-- `POST /oapi/stream/add` - Add a twitter user to monitor his tweets
-- `POST /oapi/stream/remove` - Remove a user from monitor list
-
 ### ❌ Deprecated Endpoints
 
 The following endpoints are marked as deprecated in the API documentation and are not implemented:
@@ -136,8 +138,8 @@ The following endpoints are marked as deprecated in the API documentation and ar
 
 ## Implementation Status Summary
 
-- **Fully Supported**: 27 endpoints (10 User endpoints + 2 List endpoints + 1 My endpoint + 5 Communities endpoints + 1 Trend endpoint + 1 Spaces endpoint + 7 Tweet endpoints)
-- **Not Implemented**: ~16+ endpoints across multiple categories
+- **Fully Supported**: 29 endpoints (10 User endpoints + 2 List endpoints + 1 My endpoint + 5 Communities endpoints + 1 Trend endpoint + 1 Spaces endpoint + 7 Tweet endpoints + 2 Stream endpoints)
+- **Not Implemented**: ~14+ endpoints across multiple categories
 
 ## Contributing
 

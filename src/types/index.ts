@@ -5,3 +5,4 @@ export * from "./spaces";
 export * from "./trends";
 export * from "./list";
 export * from "./myEndpoint";
+export * from "./stream";
